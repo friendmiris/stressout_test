@@ -77,11 +77,19 @@
      PC에서는 device를 최대 1240~1340px까지 넓히고, 긴 화면은
      2~3열 그리드로 배치해 가로 공간을 충분히 활용합니다.
      ============================================================ */
+  @media (max-width:767px){
+    /* 모바일: 둥근 폰 프레임 제거 → 화면 전체를 풀스크린으로 사용 (한눈에 보이게) */
+    body{padding:0 !important; align-items:stretch; background:linear-gradient(180deg,#F4FCFF 0%,#E8F6FC 100%);}
+    .device{
+      max-width:100% !important; width:100%; height:100vh; min-height:100vh;
+      border-radius:0 !important; border:none !important; box-shadow:none !important;
+      background:linear-gradient(180deg,#F4FCFF 0%,#E8F6FC 100%);
+    }
+    .screen.active{overflow-y:auto;}
+    .screen[data-screen="chat"].active{height:100vh; overflow:hidden;}
+  }
   @media (max-width:480px){
-    body{padding:14px 8px 30px;}
-    .device{height:auto; min-height:calc(100vh - 44px); overflow:visible;}
-    .screen.active{overflow:visible;}
-    .screen[data-screen="chat"].active{min-height:calc(100vh - 44px); overflow:hidden;}
+    .device{height:100vh; min-height:100vh;}
   }
   /* ── 모바일 전용(≤767px): 글씨·요소를 한 단계 작게 (PC/태블릿은 그대로) ── */
   @media (max-width:767px){
@@ -90,78 +98,83 @@
     .sub,.lfoot,.cp-top .sl,.share-q,.load-s,.opt .sub2,.score-nm .lab,.slot-nm .d{color:#3E6B79 !important;}
     .field>label .multi,.field>label .opt-tag,.cal-picked.none{color:#6E97A4 !important;}
     /* 본문/대화/선택지 */
-    .bub-a,.bub-m{font-size:15px; line-height:1.55;}
-    .opt{font-size:14.5px; padding:11px 13px;}
-    .opt .lead{font-size:15px;} .opt .sub2{font-size:12.5px;}
-    .narr{font-size:15px;} .narr .pull{font-size:16px; padding:11px 13px; margin:13px 0;}
-    .sub{font-size:14.5px;}
-    .rhint{font-size:13px;}
-    .chatInput,.typebar input{font-size:15px;}
-    .replies .typebar input{font-size:15px;}
+    .bub-a,.bub-m{font-size:13.5px; line-height:1.5;}
+    .row{max-width:95%;}
+    .bub-a,.bub-m{padding:10px 13px;}
+    .opt{font-size:13px; padding:9px 12px;}
+    .opt .lead{font-size:13.5px;} .opt .sub2{font-size:11.5px;}
+    .narr{font-size:14px;} .narr .pull{font-size:15px; padding:10px 12px; margin:12px 0;}
+    .sub{font-size:13.5px;}
+    .rhint{font-size:12px;}
+    .chatInput,.typebar input{font-size:13.5px;}
+    .replies .typebar input{font-size:13.5px;}
+    .chat{padding:14px 13px; gap:9px;}
+    .replies{padding:0 13px 11px;}
+    .opt{margin-bottom:7px;}
     /* 헤더/진행 — 한 줄 유지, 칸 축소 */
-    .chead{padding:11px 14px; gap:9px;}
-    .chead .ava{width:30px; height:30px;}
-    .chead .nm{font-size:18px;} .chead .st{font-size:12px;} .back{font-size:14px;}
+    .chead{padding:10px 13px; gap:8px;}
+    .chead .ava{width:28px; height:28px;}
+    .chead .nm{font-size:16px;} .chead .st{font-size:11.5px;} .back{font-size:13px;}
     /* 랜딩 */
-    .landing{padding:26px 22px 24px;}
-    .ttl{font-size:clamp(21px,5.8vw,25px); line-height:1.4;}
-    .badge{font-size:13px;}
-    .sub{font-size:14.5px;}
-    .countpill{font-size:13.5px;} .lfoot{font-size:13px;}
-    .floaties{font-size:25px;}
-    .landing .big .l1{font-size:clamp(46px,13vw,58px);}
-    .landing .big .l2{font-size:clamp(24px,7vw,32px);}
+    .landing{padding:24px 20px 22px;}
+    .ttl{font-size:clamp(19px,5.4vw,23px); line-height:1.4;}
+    .badge{font-size:12.5px;}
+    .sub{font-size:13.5px;}
+    .countpill{font-size:13px;} .lfoot{font-size:12.5px;}
+    .floaties{font-size:24px;}
+    .landing .big .l1{font-size:clamp(42px,12vw,54px);}
+    .landing .big .l2{font-size:clamp(22px,6.5vw,30px);}
     /* 결과 */
-    .r-hero{padding:26px 20px 22px;}
-    .r-kicker{font-size:12.5px;}
-    .r-type{font-size:clamp(25px,7vw,32px);} .r-type small{font-size:12.5px;}
-    .gauge-num{font-size:clamp(40px,11vw,50px);} .gauge-num .unit{font-size:17px;}
-    .gauge-scale{font-size:11.5px;}
-    .r-tag{font-size:13px;}
-    .sec-label .tt{font-size:17px;} .sec-label .en{font-size:11px;}
-    .score-nm{font-size:14.5px;} .score-nm .lab{font-size:12.5px;} .score-vv{font-size:16px;}
-    .score-meta{font-size:13px;}
-    .sit .h{font-size:14.5px;} .sit .b{font-size:13.5px;} .sit .ic{width:38px;height:38px;font-size:21px;}
-    .grow .gh{font-size:14.5px;} .grow .gb{font-size:13.5px;} .grow .try{font-size:13px;} .grow .n{font-size:18px;}
+    .r-hero{padding:24px 18px 20px;}
+    .r-kicker{font-size:12px;}
+    .r-type{font-size:clamp(23px,6.5vw,30px);} .r-type small{font-size:12px;}
+    .gauge-num{font-size:clamp(38px,10.5vw,48px);} .gauge-num .unit{font-size:16px;}
+    .gauge-scale{font-size:11px;}
+    .r-tag{font-size:12.5px;}
+    .sec-label .tt{font-size:16px;} .sec-label .en{font-size:10.5px;}
+    .score-nm{font-size:14px;} .score-nm .lab{font-size:12px;} .score-vv{font-size:15px;}
+    .score-meta{font-size:12.5px;}
+    .sit .h{font-size:14px;} .sit .b{font-size:13px;} .sit .ic{width:36px;height:36px;font-size:20px;}
+    .grow .gh{font-size:14px;} .grow .gb{font-size:13px;} .grow .try{font-size:12.5px;} .grow .n{font-size:17px;}
     /* 잠긴 분석 카드 */
-    .locked-item .lh{font-size:15px;} .locked-item .lb{font-size:13.5px;} .locked-item .lscore{font-size:17px;}
-    .locked-h{font-size:17px;} .locked-d{font-size:13.5px;} .locked-btn{font-size:14.5px;} .locked-mini{font-size:12.5px;}
+    .locked-item .lh{font-size:14px;} .locked-item .lb{font-size:13px;} .locked-item .lscore{font-size:16px;}
+    .locked-h{font-size:16px;} .locked-d{font-size:13px;} .locked-btn{font-size:14px;} .locked-mini{font-size:12px;}
     /* 프로그램 안내 */
-    .ses-hero{padding:24px 20px 20px;}
-    .ses-hero h2{font-size:18px;} .ses-hero .meta{font-size:13px;} .ses-hero .ticket{font-size:12px;}
-    .ses-lede{font-size:14.5px; padding:16px 18px 4px;} .ses-sechead .stt{font-size:15.5px;}
-    .step .sh{font-size:14.5px;} .step .se{font-size:11.5px;} .step .sd{font-size:13px;} .step .num{width:28px;height:28px;font-size:16px;}
-    .ses-info .ich .il{font-size:12.5px;} .ses-info .ich .iv{font-size:14.5px;} .ses-info .ich .iv small{font-size:12.5px;}
-    .ses-note .nh{font-size:14.5px;} .ses-note .nb{font-size:14px;}
-    .review .stars{font-size:15px;} .review .rtext{font-size:14px;} .review .rwho{font-size:13px;}
-    .ses-disc{font-size:12.5px;}
+    .ses-hero{padding:22px 18px 18px;}
+    .ses-hero h2{font-size:17px;} .ses-hero .meta{font-size:12.5px;} .ses-hero .ticket{font-size:11.5px;}
+    .ses-lede{font-size:14px; padding:15px 17px 4px;} .ses-sechead .stt{font-size:15px;}
+    .step .sh{font-size:14px;} .step .se{font-size:11px;} .step .sd{font-size:12.5px;} .step .num{width:27px;height:27px;font-size:15px;}
+    .ses-info .ich .il{font-size:12px;} .ses-info .ich .iv{font-size:14px;} .ses-info .ich .iv small{font-size:12px;}
+    .ses-note .nh{font-size:14px;} .ses-note .nb{font-size:13.5px;}
+    .review .stars{font-size:14px;} .review .rtext{font-size:13.5px;} .review .rwho{font-size:12.5px;}
+    .ses-disc{font-size:12px;}
     /* 신청 폼 */
-    .apply-hero{padding:22px 20px 16px;}
-    .apply-hero h2{font-size:18px;} .apply-hero p{font-size:13.5px;} .apply-hero .ticket{font-size:12px;}
-    .field>label{font-size:14.5px;} .field>label .multi,.field>label .opt-tag{font-size:12.5px;}
-    .inp{font-size:15px; padding:11px 13px;} textarea.inp{font-size:15px;}
+    .apply-hero{padding:20px 18px 14px;}
+    .apply-hero h2{font-size:17px;} .apply-hero p{font-size:13px;} .apply-hero .ticket{font-size:11.5px;}
+    .field>label{font-size:14px;} .field>label .multi,.field>label .opt-tag{font-size:12px;}
+    .inp{font-size:14.5px; padding:11px 13px;} textarea.inp{font-size:14.5px;}
     /* 선택 칩: 3열 균일 그리드 */
     .choices{display:grid; grid-template-columns:repeat(3,1fr); gap:7px;}
-    .choice{font-size:13.5px; padding:10px 6px; text-align:center; border-radius:11px;
-      display:flex; align-items:center; justify-content:center; min-height:42px; line-height:1.2;}
+    .choice{font-size:13px; padding:9px 6px; text-align:center; border-radius:11px;
+      display:flex; align-items:center; justify-content:center; min-height:40px; line-height:1.2;}
     /* 달력 */
-    .cal{padding:12px 9px;}
-    .cal-head{gap:10px; margin-bottom:10px;}
-    .cal-head .cm{font-size:16px;} .cal-nav{width:30px;height:30px;font-size:17px;}
+    .cal{padding:11px 8px;}
+    .cal-head{gap:9px; margin-bottom:9px;}
+    .cal-head .cm{font-size:15px;} .cal-nav{width:28px;height:28px;font-size:16px;}
     .cal-grid{gap:3px;}
-    .cal-cell{font-size:14px; border-radius:9px;}
-    .cal-dow{font-size:12.5px; padding:3px 0;}
-    .cal-picked{font-size:13px;}
-    .check .ct{font-size:13.5px;} .privacy{font-size:12px;}
+    .cal-cell{font-size:13.5px; border-radius:9px;}
+    .cal-dow{font-size:12px; padding:3px 0;}
+    .cal-picked{font-size:12.5px;}
+    .check .ct{font-size:13px;} .privacy{font-size:11.5px;}
     /* 버튼 */
-    .cta{font-size:15.5px; padding:13px;}
+    .cta{font-size:15px; padding:13px;}
     /* 완료/공유 */
-    .done h2{font-size:18px;} .done p{font-size:14.5px;} .done .recap .rr{font-size:15px;} .done .recap .rr .k{font-size:13px;}
-    .cp-top .ty{font-size:18px;} .cp-top .sl{font-size:13.5px;} .cp-meta{font-size:12px;}
-    .sbtn{font-size:15.5px;} .share-q{font-size:13.5px;}
+    .done h2{font-size:17px;} .done p{font-size:14px;} .done .recap .rr{font-size:14px;} .done .recap .rr .k{font-size:12.5px;}
+    .cp-top .ty{font-size:17px;} .cp-top .sl{font-size:13px;} .cp-meta{font-size:11.5px;}
+    .sbtn{font-size:15px;} .share-q{font-size:13px;}
     /* 로딩 */
-    .load-t{font-size:17px;} .load-s{font-size:14px;} .lstep{font-size:13.5px;}
-    .load-orb{width:110px;height:110px;}
+    .load-t{font-size:16px;} .load-s{font-size:13.5px;} .lstep{font-size:13px;}
+    .load-orb{width:104px;height:104px;}
   }
   /* 태블릿 */
   @media (min-width:768px){
@@ -969,7 +982,7 @@ const ILLUSION_SVG=`<svg viewBox="0 0 220 250" xmlns="http://www.w3.org/2000/svg
 </svg>`;
 
 const qa=[
-  {q:'안녕하세요, Stress OUT이에요 🌴<br>오늘은 “요즘의 나”를 가볍게 점검해볼게요. 요즘 아침에 눈 뜰 때 기분, 어느 쪽에 가까워요?',
+  {q:'안녕하세요, Stress OUT이에요 🌴<br>요즘의 나를 가볍게 점검해볼게요.<br>아침에 눈 뜰 때 기분, 어느 쪽에 가까워요?',
    opts:[['가뿐하게 일어나요','잘 자고 개운한 편이에요'],['눈 뜨자마자 막막해요','일어나기 전부터 피곤해요']]},
   {q:'그림 하나 보여드릴게요 👀<br>아래 그림에서 <b>가장 먼저 보이는 것</b>은 무엇인가요?<div class="illus">'+ILLUSION_SVG+'<span class="cap">정답은 없어요 · 먼저 보이는 대로 골라주세요</span></div>',
    illusion:true,
