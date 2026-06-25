@@ -78,18 +78,22 @@
      2~3열 그리드로 배치해 가로 공간을 충분히 활용합니다.
      ============================================================ */
   @media (max-width:767px){
-    /* 모바일: 둥근 폰 프레임 제거 → 화면 전체를 풀스크린으로 사용 (한눈에 보이게) */
+    /* 모바일: 화면 전체 배율 축소 (글씨가 큰 문제를 통째로 해결) */
+    html{zoom:0.82;}
+    /* zoom 미지원 브라우저 대비: body 글자 기준 축소 */
+    body{font-size:13px;}
+    /* 둥근 폰 프레임 제거 → 화면 전체를 풀스크린으로 사용 (한눈에 보이게) */
     body{padding:0 !important; align-items:stretch; background:linear-gradient(180deg,#F4FCFF 0%,#E8F6FC 100%);}
     .device{
-      max-width:100% !important; width:100%; height:100vh; min-height:100vh;
+      max-width:100% !important; width:100%; height:auto; min-height:122vh;
       border-radius:0 !important; border:none !important; box-shadow:none !important;
       background:linear-gradient(180deg,#F4FCFF 0%,#E8F6FC 100%);
     }
-    .screen.active{overflow-y:auto;}
-    .screen[data-screen="chat"].active{height:100vh; overflow:hidden;}
+    .screen.active{overflow-y:visible;}
+    .screen[data-screen="chat"].active{min-height:122vh; overflow:visible;}
   }
   @media (max-width:480px){
-    .device{height:100vh; min-height:100vh;}
+    .device{height:auto; min-height:122vh;}
   }
   /* ── 모바일 전용(≤767px): 글씨·요소를 한 단계 작게 (PC/태블릿은 그대로) ── */
   @media (max-width:767px){
