@@ -357,7 +357,7 @@ function loadApplicants(){
   rawApplicants=stored;
   applicants=stored.map((r,i)=>({
     id:r.id||null, nm:r.name||'(이름없음)', ini:(r.name||'?').slice(0,1),
-    tel:maskTel(r.tel||''), topic:r.topic||'-', message:r.message||'',
+    tel:r.tel||'', topic:r.topic||'-', message:r.message||'',
     datesText:r.datesText||(Array.isArray(r.dates)?r.dates.join(', '):'')||'-',
     timesText:r.timesText||(Array.isArray(r.times)?r.times.join(', '):'')||'-',
     ag:r.agree?1:0, st:r.status||'wait', at:atTextOf(r), c:AV_COLORS[i%AV_COLORS.length]
