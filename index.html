@@ -97,10 +97,17 @@
   }
   /* ── 모바일 전용(≤767px): 글씨·요소를 한 단계 작게 (PC/태블릿은 그대로) ── */
   @media (max-width:767px){
-    /* 흐린 회색 설명 글씨를 진하게 (가독성) */
+    /* 흐린 회색·하늘색 설명 글씨를 진한 검정에 가깝게 (가독성 - 요청사항) */
     .score-meta,.sit .b,.grow .gb,.step .sd,.ses-note .nb,.review .rtext,
-    .sub,.lfoot,.cp-top .sl,.share-q,.load-s,.opt .sub2,.score-nm .lab,.slot-nm .d{color:#3E6B79 !important;}
-    .field>label .multi,.field>label .opt-tag,.cal-picked.none{color:#6E97A4 !important;}
+    .sub,.lfoot,.cp-top .sl,.share-q,.load-s,.opt .sub2,.score-nm .lab,.slot-nm .d,
+    .sit .h,.grow .gh,.locked-item .lb,.r-kicker,.gauge-scale,.cal-dow,
+    .rhint,.ses-lede,.ses-info .ich .il,.apply-hero p,.field>label,.done p,
+    .recap .rr .k,.review .rwho,.step .se{color:#22424E !important;}
+    .field>label .multi,.field>label .opt-tag,.cal-picked.none{color:#5A8593 !important;}
+    /* 착시 그림: 모바일에서 작게 + 캡션 진하게 */
+    .illus svg{width:130px !important; height:150px !important;}
+    .illus{padding:10px !important; margin-top:8px !important;}
+    .illus .cap{font-size:11.5px !important; color:#5A8593 !important;}
     /* 본문/대화/선택지 */
     .bub-a,.bub-m{font-size:13.5px !important; line-height:1.5 !important;}
     .row{max-width:95% !important;}
@@ -118,7 +125,7 @@
     /* 헤더/진행 — 한 줄 유지, 칸 축소 */
     .chead{padding:10px 13px !important; gap:8px !important;}
     .chead .ava{width:28px !important; height:28px !important;}
-    .chead .nm{font-size:16px !important;} .chead .st{font-size:11.5px !important;} .back{font-size:13px !important;}
+    .chead .nm{font-size:15px !important; font-family:'Pretendard',sans-serif !important;} .chead .st{font-size:11px !important;} .back{font-size:12.5px !important;}
     /* 랜딩 */
     .landing{padding:24px 20px 22px !important;}
     .ttl{font-size:clamp(19px,5.4vw,23px) !important; line-height:1.4 !important;}
